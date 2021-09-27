@@ -54,7 +54,7 @@ database="GO";
 
 fi
 
-if [ $database == "KEGG" ] || [ $database == "GO" ] || [ $database == "REACTOME" ]; then
+if [ $database == "KEGG" ] || [ $database == "GO" ] || [ $database == "REACTOME" ] || [ $database == "GO_bps" ] ; then
 
 
 sh ${DIR}/class/lib/db/update_${database}.sh ${organism} $DIR;

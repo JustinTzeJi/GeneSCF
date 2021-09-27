@@ -1,3 +1,22 @@
+# Changes
+- Added <b>updated_GO_bps.sh </b> for preparing database from .gaf file exported from QuickGO
+- Changes to <b>prepare_database</b> to recognize <i>GO_bps</i>
+```r
+./prepare_database -db=GO_bps -org=GO_bps
+```
+- use the <u>normal syntax</u> for <i>-db</i> during Enrichment Analysis:
+
+<b>For KEGG: </b>
+``` r
+./geneSCF -m=normal -i=path/to/gene_list.list -o=path/to/output/ -t=gid -db=KEGG -bg=6260 --plot=yes -org=bps
+```
+<b>For Gene Ontology: </b>
+```r
+./geneSCF -m=normal i=path/to/gene_list.list -o=path/to/output/ -t=sym -db=GO_BP -bg=6260 --plot=yes -org=GO_bps
+```
+
+
+-----
 
 <table><tr><td><img alt="GitHub All Releases" src="https://img.shields.io/github/downloads/genescf/GeneSCF/total"></td><td><img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/genescf/GeneSCF"></td></tr></table>
 
