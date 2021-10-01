@@ -1,28 +1,28 @@
-# Changes
-- Added <b>updated_GO_bps.sh </b> for preparing database from .gaf file exported from QuickGO
-- Changes to <b>prepare_database</b> to recognize <i>GO_bps</i>
+## Additions
+- Added **updated_GO_bps.sh** for preparing database from .gaf file exported from QuickGO
+- Changes to **prepare_database** to recognize *GO_bps*
 ```r
 ./prepare_database -db=GO_bps -org=GO_bps
 ```
-- use the <u>normal syntax</u> for <i>-db</i> during Enrichment Analysis:
+- use the <u>normal syntax</u> for *-db* during Enrichment Analysis:
 
-<b>For KEGG: </b>
-``` r
+**For KEGG:**
+```sh
 ./geneSCF -m=normal -i=path/to/gene_list.list -o=path/to/output/ -t=gid -db=KEGG -bg=6260 --plot=yes -org=bps
 ```
-<b>For Gene Ontology: </b>
-```r
+**For Gene Ontology:**
+```sh
 ./geneSCF -m=normal i=path/to/gene_list.list -o=path/to/output/ -t=sym -db=GO_BP -bg=6260 --plot=yes -org=GO_bps
 ```
 
 
 -----
 
-<table><tr><td><img alt="GitHub All Releases" src="https://img.shields.io/github/downloads/genescf/GeneSCF/total"></td><td><img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/genescf/GeneSCF"></td></tr></table>
+<img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/JustinTzeJi/GeneSCF">
 
 <b>Note (JFY):</b> GeneSCF was recently (September 2020) moved to GitHub. It has been downloaded 5,325 times when hosted on http://genescf.kandurilab.org
 
-<b>Important:</b> Always download latest stable release. To download latest release <a href="https://github.com/genescf/GeneSCF/releases/download/v1.1/geneSCF-master-v1.1-p2.tar.gz">click here</a>. Check here for <a href="https://github.com/genescf/GeneSCF/releases">other releases</a>.
+## <b>Important:</b> Always download latest stable release from GeneSCF. To download latest release <a href="https://github.com/genescf/GeneSCF/releases/download/v1.1/geneSCF-master-v1.1-p2.tar.gz">click here</a>. Check here for <a href="https://github.com/genescf/GeneSCF/releases">other releases</a>.
 
 
 <!--table border=0><tr><td><img alt="GitHub Releases (by Asset)" src="https://img.shields.io/github/downloads/genescf/GeneSCF/v1.1/geneSCF-master-v1.1-p2.tar.gz"></td>
