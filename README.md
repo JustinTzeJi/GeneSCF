@@ -15,6 +15,7 @@
 ./geneSCF -m=normal i=path/to/gene_list.list -o=path/to/output/ -t=sym -db=GO_BP -bg=6260 --plot=yes -org=GO_bps
 ```
 
+- Added `ggrepel` and `stringr` libraries for plot generation - run the chunks in **bubbles-edit.rmd**
 
 -----
 
