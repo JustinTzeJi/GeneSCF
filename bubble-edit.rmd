@@ -1,11 +1,20 @@
+Set Working dir
+
+```{r}
+setwd("~/Master/Functional_Annotation/GeneSCF")
+```
+
 loading libraries
 
 ```{r}
 library(ggplot2)
 library(ggrepel)
 library(stringr)
-```
+library(gridtext)
+library(ggtext)
 
+
+```
 
 BP_GO plot
 
@@ -20,17 +29,19 @@ data <- data[1:20,]
 
 newdata <- cbind(gsub( "~.*$", " ", data[,"process"]),data[,"Rank_in_order"])
 colnames(newdata) <- c("IDs","Rank_in_order")
-png(paste0("output/GO_BP_enrichment_plot.png"),width=900,height=625)
+png(paste0("output/GO_BP_enrichment_plot.png"),width=900,height=750)
 ggplot(data, aes(x=Rank_in_order, y=-log10(Pvalue), size=genes, label=newdata[,"IDs"],fill=str_wrap(paste0(data[,"process"]),35, 0, 0)),guide=FALSE)+
 geom_point(colour="#2E2E2E", shape=21)+ 
 scale_size_area(max_size = 5)+ 
-labs(fill="Rank:Process (Top 20)")+
+labs(title = "20 Most enriched **Biological Process** Terms for *B. pseudomallei* biofilm-related genes",
+fill="Biological Process (Top 20)")+
 scale_x_continuous(name="Rank in order", limits=c(0,20))+
 scale_y_continuous(name="-log10(Pvalue)")+
 #scale_size_continuous(range=c(1, 15))+
 geom_text_repel(size=4, color="#2E2E2E")+
 geom_hline(yintercept=1.3)+
-theme(text = element_text(size=14))
+theme(plot.title =element_markdown(margin = ggplot2::margin(20, 0, 20, 0), size=22),
+text = element_text(size=14))
 ```
 
 MF_GO plot
@@ -46,17 +57,19 @@ data <- data[1:20,]
 
 newdata <- cbind(gsub( "~.*$", " ", data[,"process"]),data[,"Rank_in_order"])
 colnames(newdata) <- c("IDs","Rank_in_order")
-png(paste0("output/GO_MF_enrichment_plot.png"),width=900,height=625)
-ggplot(data, aes(x=Rank_in_order, y=-log10(Pvalue), size=genes, label=newdata[,"IDs"],fill=str_wrap(paste0(data[,"process"]),50, 0, 0)),guide=FALSE)+
+png(paste0("output/GO_MF_enrichment_plot.png"),width=900,height=750)
+ggplot(data, aes(x=Rank_in_order, y=-log10(Pvalue), size=genes, label=newdata[,"IDs"],fill=str_wrap(paste0(data[,"process"]),35, 0, 0)),guide=FALSE)+
 geom_point(colour="#2E2E2E", shape=21)+ 
 scale_size_area(max_size = 5)+ 
-labs(fill="Rank:Process (Top 20)")+
+labs(title = "20 Most enriched **Molecular Function** Terms for *B. pseudomallei* biofilm-related genes", 
+fill="Molecular Function (Top 20)")+
 scale_x_continuous(name="Rank in order", limits=c(0,20))+
 scale_y_continuous(name="-log10(Pvalue)")+
 #scale_size_continuous(range=c(1, 15))+
 geom_text_repel(size=4, color="#2E2E2E")+
 geom_hline(yintercept=1.3)+
-theme(text = element_text(size=14))
+theme(plot.title =element_markdown(margin = ggplot2::margin(20, 0, 20, 0), size=22),
+text = element_text(size=14))
 ```
 
 CC_GO plot
@@ -72,17 +85,19 @@ data <- data[1:20,]
 
 newdata <- cbind(gsub( "~.*$", " ", data[,"process"]),data[,"Rank_in_order"])
 colnames(newdata) <- c("IDs","Rank_in_order")
-png(paste0("output/GO_CC_enrichment_plot.png"),width=900,height=625)
+png(paste0("output/GO_CC_enrichment_plot.png"),width=900,height=750)
 ggplot(data, aes(x=Rank_in_order, y=-log10(Pvalue), size=genes, label=newdata[,"IDs"],fill=str_wrap(paste0(data[,"process"]),35, 0, 0)),guide=FALSE)+
 geom_point(colour="#2E2E2E", shape=21)+ 
 scale_size_area(max_size = 5)+ 
-labs(fill="Rank:Process (Top 20)")+
+labs(title = "20 Most enriched **Cellular Component** Terms for *B. pseudomallei* biofilm-related genes", 
+fill="Cellular Component (Top 20)")+
 scale_x_continuous(name="Rank in order", limits=c(0,20))+
 scale_y_continuous(name="-log10(Pvalue)")+
 #scale_size_continuous(range=c(1, 15))+
 geom_text_repel(size=4, color="#2E2E2E")+
 geom_hline(yintercept=1.3)+
-theme(text = element_text(size=14))
+theme(plot.title =element_markdown(margin = ggplot2::margin(20, 0, 20, 0), size=22),
+text = element_text(size=14))
 ```
 
 KEGG plot
@@ -98,15 +113,17 @@ data <- data[1:20,]
 
 newdata <- cbind(gsub( "~.*$", "", data[,"process"]),data[,"Rank_in_order"])
 colnames(newdata) <- c("IDs","Rank_in_order")
-png(paste0("output/KEGG_enrichment_plot.png"),width=900,height=625)
-ggplot(data, aes(x=Rank_in_order, y=-log10(Pvalue), size=genes, label=newdata[,"IDs"],fill=paste0(data[,"process"])),guide=FALSE)+
+png(paste0("output/KEGG_enrichment_plot.png"),width=900,height=750)
+ggplot(data, aes(x=Rank_in_order, y=-log10(Pvalue), size=genes, label=newdata[,"IDs"],fill=str_wrap(paste0(data[,"process"]),35, 0, 0)),guide=FALSE)+
 geom_point(colour="#2E2E2E", shape=21)+ 
 scale_size_area(max_size = 5)+ 
-labs(fill="Rank:Process (Top 20)")+
+labs(title = "20 Most enriched **KEGG** Terms for *B. pseudomallei* biofilm-related genes", 
+fill="KEGG Terms (Top 20)")+
 scale_x_continuous(name="Rank in order", limits=c(0,20))+
 scale_y_continuous(name="-log10(Pvalue)")+
 #scale_size_continuous(range=c(1, 15))+
 geom_text_repel(size=4, color="#2E2E2E")+
 geom_hline(yintercept=1.3)+
-theme(text = element_text(size=14))
+theme(plot.title =element_markdown(margin = ggplot2::margin(20, 0, 20, 0), size=22),
+text = element_text(size=14))
 ```
