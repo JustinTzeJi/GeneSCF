@@ -38,8 +38,9 @@ fill="Biological Process (Top 20)")+
 scale_x_continuous(name="Rank in order", limits=c(0,20))+
 scale_y_continuous(name="-log10(Pvalue)")+
 #scale_size_continuous(range=c(1, 15))+
-geom_text_repel(size=4, color="#2E2E2E")+
-geom_hline(yintercept=1.3)+
+geom_text_repel(size=4, color="#2E2E2E", box.padding = 0.5)+
+geom_hline(yintercept=1.3, linetype='dotted', col = 'red')+
+annotate("text", x = 19, y = 1.3, label = "paste(italic(p), \"-value = 0.05\")", vjust = -1, parse = TRUE)+
 theme(plot.title =element_markdown(margin = ggplot2::margin(20, 0, 20, 0), size=22),
 text = element_text(size=14))
 ```
@@ -67,7 +68,8 @@ scale_x_continuous(name="Rank in order", limits=c(0,20))+
 scale_y_continuous(name="-log10(Pvalue)")+
 #scale_size_continuous(range=c(1, 15))+
 geom_text_repel(size=4, color="#2E2E2E")+
-geom_hline(yintercept=1.3)+
+geom_hline(yintercept=1.3, linetype='dotted', col = 'red')+
+annotate("text", x = 19, y = 1.3, label = "paste(italic(p), \"-value = 0.05\")", vjust = -1, parse = TRUE)+
 theme(plot.title =element_markdown(margin = ggplot2::margin(20, 0, 20, 0), size=22),
 text = element_text(size=14))
 ```
@@ -95,7 +97,8 @@ scale_x_continuous(name="Rank in order", limits=c(0,20))+
 scale_y_continuous(name="-log10(Pvalue)")+
 #scale_size_continuous(range=c(1, 15))+
 geom_text_repel(size=4, color="#2E2E2E")+
-geom_hline(yintercept=1.3)+
+geom_hline(yintercept=1.3, linetype='dotted', col = 'red')+
+annotate("text", x = 19, y = 1.3, label = "paste(italic(p), \"-value = 0.05\")", vjust = -1, parse = TRUE)+
 theme(plot.title =element_markdown(margin = ggplot2::margin(20, 0, 20, 0), size=22),
 text = element_text(size=14))
 ```
@@ -123,7 +126,8 @@ scale_x_continuous(name="Rank in order", limits=c(0,20))+
 scale_y_continuous(name="-log10(Pvalue)")+
 #scale_size_continuous(range=c(1, 15))+
 geom_text_repel(size=4, color="#2E2E2E")+
-geom_hline(yintercept=1.3)+
+geom_hline(yintercept=1.3, linetype='dotted', col = 'red')+
+annotate("text", x = 19, y = 1.3, label = "paste(italic(p), \"-value = 0.05\")", vjust = -1, parse = TRUE)+
 theme(plot.title =element_markdown(margin = ggplot2::margin(20, 0, 20, 0), size=22),
 text = element_text(size=14))
 ```
